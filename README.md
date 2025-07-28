@@ -44,7 +44,7 @@ from datetime import datetime
 v = Vernomic(
     root_name="model",
     suffix_name="v1",
-    file_extension="yaml",
+    file_extension="pkl",
     date=datetime(2025, 6, 24, 7, 32)
 )
 print(str(v))           # → model_26_Indigo_Duck_0732_v1

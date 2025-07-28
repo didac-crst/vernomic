@@ -14,7 +14,7 @@ for uniqueness.
 
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Union
+from typing import Union, Optional
 import os
 import yaml
 from pathlib import Path
@@ -131,7 +131,7 @@ class Vernomic:
         ext = self.file_extension.lstrip(".")
         return f"{self.vernomic_id}.{ext}"
 
-    def to_yaml(self, path: str = "./") -> None:
+    def to_yaml(self, path: str = "./", description: Optional[str] = None) -> None:
         """
         Export metadata to a YAML file.
 
@@ -169,6 +169,8 @@ class Vernomic:
             "version_day": self.day_name,
             "version_time": self.version_time,
         }
+        if description:
+            data["description"] = description
 
         # Normalize to Path
         p = Path(path)

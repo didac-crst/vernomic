@@ -10,8 +10,8 @@ CYCLE_DAYS = sorted([
 ])
 
 CYCLE_NAMES = sorted([
-    "Amber", "Bronze", "Coral", "Diamond", "Emerald", "Fuchsia", "Gold",
-    "Indigo", "Khaki", "Onyx", "Ruby", "Silver", "Turquoise", "Violet"
+    "Amber", "Bronze", "Coral", "Emerald", "Fuchsia", "Gold",
+    "Indigo", "Khaki", "Onyx", "Ruby", "Silver", "Turquoise", "Violet", "Zinc"
 ])
 
 CONSTANTS = {

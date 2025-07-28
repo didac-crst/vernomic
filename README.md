@@ -3,7 +3,7 @@
 A **mnemonic versioning system** on a four-week cycle that fuses vivid, object-based color names
 with animals — making each release as memorable as it is meaningful.
 
-    model_23_Turquoise_Monkey_1523
+    model_25_Indigo_Duck_1428_v1
 
 This is useful for naming experiments, models, snapshots, or backups with more memorable identifiers than timestamps or UUIDs.
 
@@ -20,7 +20,7 @@ poetry install
 - Each day in the cycle gets an animal name (`Tiger`, `Owl`, etc.).
 - The final name follows this structure:
 
-    <root>_<yy>_<CycleName>_<AnimalName>_<HHMM>
+    <root>_<yy>_<CycleName>_<AnimalName>_<HHMM>[_<suffix>]
 
 ## 🐍 Example
 
@@ -28,9 +28,18 @@ poetry install
 from vernomic import Vernomic
 from datetime import datetime
 
-v = Vernomic(root_name="model", date=datetime(2025, 7, 28, 15, 23))
-print(str(v))  # → model_25_Turquoise_Monkey_1523
+v = Vernomic(root_name="model", suffix_name="v1", file_extension="yaml", date=datetime(2025, 7, 22, 14, 28))
+print(str(v))        # → model_25_Indigo_Duck_1428_v1
+v.to_yaml("metadata/")  # writes metadata/model_25_Indigo_Duck_1428_v1.yaml
 ```
+
+## 📝 Metadata Export
+
+Use the `to_yaml(...)` method to record all relevant metadata to a `.yaml` file:
+
+- Pass a directory path (ending with `/` or existing folder) to have the file named
+    `<vernomic_id>.yaml` inside it.
+- Or pass a filepath (with or without `.yaml` extension) to control the exact output location.
 
 ## 🧪 Running Tests
 
@@ -40,9 +49,9 @@ poetry run pytest -s --hypothesis-show-statistics
 
 ## 📁 Repository Structure
 
-- `vernomic/` – main package code
-- `tests/` – unit & property-based tests using Hypothesis
-- `examples/` – sample script to generate names
+- `vernomic/` – main package code  
+- `tests/` – unit & property-based tests using Hypothesis  
+- `examples/` – sample scripts to generate names  
 
 ## 📜 License
 

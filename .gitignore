@@ -16,3 +16,12 @@ build/
 # IDEs
 .vscode/
 .idea/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Hypothesis
+.hypothesis/
+hypothesis/
+hypothesis_cache/

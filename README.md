@@ -1,58 +1,78 @@
-# Vernomic
+    [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org)
+    [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+    [![Build Status](https://github.com/didac/vernomic/actions/workflows/ci.yml/badge.svg)](https://github.com/didac/vernomic/actions)
+    [![PyPI Version](https://img.shields.io/pypi/v/vernomic)](https://pypi.org/project/vernomic)
 
-A **mnemonic versioning system** on a four-week cycle that fuses vivid, object-based color names
-with animals — making each release as memorable as it is meaningful.
+    # Vernomic
 
-    model_25_Indigo_Duck_1428_v1
+    A **mnemonic versioning system** on a four-week cycle that fuses vivid, object-based color names
+    with animals — making each release as memorable as it is meaningful.
 
-This is useful for naming experiments, models, snapshots, or backups with more memorable identifiers than timestamps or UUIDs.
+        model_25_Indigo_Duck_1428_v1
 
-## 🔧 Installation
+    This is useful for naming experiments, models, snapshots, or backups with more memorable identifiers than timestamps or UUIDs.
 
-```bash
-poetry install
-```
+    ## 🔧 Installation
 
-## 🧠 How it works
+    ```bash
+    poetry install
+    ```
 
-- The year is split into 13 cycles of 28 days.
-- Each cycle is given a gemstone/metal name (`Amber`, `Gold`, etc.).
-- Each day in the cycle gets an animal name (`Tiger`, `Owl`, etc.).
-- The final name follows this structure:
+    ## 🔄 Compatibility & Requirements
 
-    <root>_<yy>_<CycleName>_<AnimalName>_<HHMM>[_<suffix>]
+    - **Python**: ≥ 3.8  
+    - **Package Manager**: Poetry (recommended)  
+    - **Core Dependencies**:  
+        - `PyYAML` (for `to_yaml` metadata export)  
+    - **Dev Dependencies**:  
+        - `pytest` (unit testing)  
+        - `hypothesis` (property-based testing)  
 
-## 🐍 Example
+    ## 🧠 How it works
 
-```python
-from vernomic import Vernomic
-from datetime import datetime
+    - The year is split into 13 cycles of 28 days.  
+    - Each cycle is given a gemstone/metal name (`Amber`, `Gold`, etc.).  
+    - Each day in the cycle gets an animal name (`Tiger`, `Owl`, etc.).  
+    - The final name follows this structure:
 
-v = Vernomic(root_name="model", suffix_name="v1", file_extension="yaml", date=datetime(2025, 7, 22, 14, 28))
-print(str(v))        # → model_25_Indigo_Duck_1428_v1
-v.to_yaml("metadata/")  # writes metadata/model_25_Indigo_Duck_1428_v1.yaml
-```
+        <root>_<yy>_<CycleName>_<AnimalName>_<HHMM>[_<suffix>]
 
-## 📝 Metadata Export
+    ## 🐍 Example
 
-Use the `to_yaml(...)` method to record all relevant metadata to a `.yaml` file:
+    ```python
+    from vernomic import Vernomic
+    from datetime import datetime
 
-- Pass a directory path (ending with `/` or existing folder) to have the file named
-    `<vernomic_id>.yaml` inside it.
-- Or pass a filepath (with or without `.yaml` extension) to control the exact output location.
+    v = Vernomic(
+        root_name="model",
+        suffix_name="v1",
+        file_extension="yaml",
+        date=datetime(2025, 7, 22, 14, 28)
+    )
+    print(str(v))           # → model_25_Indigo_Duck_1428_v1
+    v.to_yaml("metadata/")  # writes metadata/model_25_Indigo_Duck_1428_v1.yaml
+    ```
 
-## 🧪 Running Tests
+    ## 📝 Metadata Export
 
-```bash
-poetry run pytest -s --hypothesis-show-statistics
-```
+    Use the `to_yaml(...)` method to record all relevant metadata to a `.yaml` file:
 
-## 📁 Repository Structure
+    - Pass a **directory** (path ends with `/` or an existing folder) to auto-name  
+      `<vernomic_id>.yaml` inside it.  
+    - Or pass a **file path** (with or without `.yaml`) to control the exact output.
 
-- `vernomic/` – main package code  
-- `tests/` – unit & property-based tests using Hypothesis  
-- `examples/` – sample scripts to generate names  
+    ## 🧪 Running Tests
 
-## 📜 License
+    ```bash
+    poetry run pytest -s --hypothesis-show-statistics
+    ```
 
-[`MIT`](LICENSE) – do whatever you want, just give credit.
+    ## 📁 Repository Structure
+
+    - `vernomic/` – main package code  
+    - `tests/` – unit & property-based tests using Hypothesis  
+    - `examples/` – sample scripts to generate names  
+
+    ## 📜 License
+
+    [`MIT`](LICENSE) – do whatever you want, just give credit.

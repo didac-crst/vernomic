@@ -29,7 +29,7 @@ poetry install
 ## 🧠 How it works
 
 - The year is split into 13 cycles of 28 days.  
-- Each cycle is given a gemstone/metal name (`Amber`, `Gold`, etc.).  
+- Each cycle is given a vivid, object-based color name (`Amber`, `Gold`, etc.).  
 - Each day in the cycle gets an animal name (`Tiger`, `Owl`, etc.).  
 - The final name follows this structure:
 

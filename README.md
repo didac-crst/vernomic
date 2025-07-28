@@ -6,7 +6,7 @@
 A **mnemonic versioning system** on a four-week cycle that fuses vivid, object-based color names
 with animals — making each release as memorable as it is meaningful.
 
-    model_25_Indigo_Duck_1428_v1
+    model_26_Indigo_Duck_0732_v1
 
 This is useful for naming experiments, models, snapshots, or backups with more memorable identifiers than timestamps or UUIDs.
 
@@ -45,10 +45,10 @@ v = Vernomic(
     root_name="model",
     suffix_name="v1",
     file_extension="yaml",
-    date=datetime(2025, 7, 22, 14, 28)
+    date=datetime(2025, 6, 24, 7, 32)
 )
-print(str(v))           # → model_25_Indigo_Duck_1428_v1
-v.to_yaml("metadata/")  # writes metadata/model_25_Indigo_Duck_1428_v1.yaml
+print(str(v))           # → model_26_Indigo_Duck_0732_v1
+v.to_yaml("metadata/")  # writes metadata/model_26_Indigo_Duck_0732_v1.yaml
 ```
 
 ## 📝 Metadata Export
@@ -73,4 +73,4 @@ poetry run pytest -s --hypothesis-show-statistics
 
 ## 📜 License
 
-[`MIT`](LICENSE) – do whatever you want, just give credit.
+MIT – do whatever you want, just give credit.

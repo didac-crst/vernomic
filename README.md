@@ -1,7 +1,7 @@
 # Vernomic
 
-**Mnemonic version generator** using a 4-week cycle logic. Combines gemstone/metals + animal names 
-to create memorable version strings like:
+A **mnemonic versioning system** on a four-week cycle that fuses vivid, object-based color names
+with animals — making each release as memorable as it is meaningful.
 
     model_23_Turquoise_Monkey_1523
 

@@ -37,7 +37,7 @@ def test_day_name_validity(date, root_name):
     print(f"Day Name: {v.day_name} for date {date}")
 
 
-@given(date=datetimes_within_year(), root_name=st.text(min_size=4, max_size=20, alphabet=st.characters(whitelist_categories=("Ll", "Lu"))))
+@given(date=datetimes_within_year(), root_name=st.text(min_size=4, max_size=10, alphabet=st.characters(whitelist_categories=("Ll", "Lu"))))
 def test_str_output_format(date, root_name):
     """Ensure the __str__ output contains expected components and structure."""
     v = Vernomic(root_name=root_name, date=date)

@@ -1,7 +1,5 @@
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Build Status](https://github.com/didac/vernomic/actions/workflows/ci.yml/badge.svg)](https://github.com/didac/vernomic/actions)
-[![PyPI Version](https://img.shields.io/pypi/v/vernomic)](https://pypi.org/project/vernomic)
 
 # Vernomic
 

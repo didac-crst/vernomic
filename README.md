@@ -33,7 +33,7 @@ poetry install
 - Each day in the cycle gets an animal name (`Tiger`, `Owl`, etc.).  
 - The final name follows this structure:
 
-    <root>_<yy>_<CycleName>_<AnimalName>_<HHMM>.<suffix>
+    `<root>_<yy>_<CycleName>_<AnimalName>_<HHMM>_<suffix>`
 
 ## 🐍 Example
 

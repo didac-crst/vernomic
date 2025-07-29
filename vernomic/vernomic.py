@@ -217,11 +217,11 @@ class Vernomic:
     
     def __repr__(self) -> str:
         """
-        Return a string representation of the Vernomic object.
+        Return the Vernomic identifier string.
 
-        Includes the class name and the mnemonic version ID.
+        Equivalent to `self.vernomic_id`.
 
         Returns:
-            str: Representation of the Vernomic object.
+            str: The mnemonic version ID.
         """
         return self.vernomic_id

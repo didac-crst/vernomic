@@ -13,7 +13,14 @@ This is useful for naming experiments, models, snapshots, or backups with more m
 ## 🔧 Installation
 
 ```bash
+# Install from PyPI (development)
 poetry install
+
+# Or install directly from GitHub (SSH)
+poetry add git+ssh://git@github.com/didac-crst/vernomic.git#main
+
+# Alternatively, using pip
+pip install git+ssh://git@github.com/didac-crst/vernomic.git
 ```
 
 ## 🔄 Compatibility & Requirements
@@ -77,6 +84,31 @@ Use the `to_yaml(...)` method to record all relevant metadata to a `.yaml` file:
 - Pass a **directory** (path ends with `/` or an existing folder) to auto-name  
     `<vernomic_id>.yaml` inside it.  
 - Or pass a **file path** (with or without `.yaml`) to control the exact output.
+
+The resulting YAML preserves key order and includes every attribute, for example:
+
+```yaml
+vernomic_id: model-25-Indigo-Duck-0732-v1
+file_name: model-25-Indigo-Duck-0732-v1.pkl
+root_name: model
+suffix_name: v1
+file_extension: pkl
+datetime_iso: '2025-06-24T07:32:00'
+year: 2025
+month: 6
+day: 24
+hour: 7
+minute: 32
+second: 0
+cycle_number: 6
+day_of_cycle: 6
+cycle_name: Indigo
+day_name: Duck
+version_year: '25'
+version_day: Indigo-Duck
+version_time: '0732'
+description: Baseline experiment  # Only present if you set `description`
+```
 
 ## 🧪 Running Tests
 

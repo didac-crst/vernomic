@@ -35,6 +35,21 @@ poetry install
 
     `<root>_<yy>_<CycleName>_<AnimalName>_<HHMM>_<suffix>`
 
+## ⚙️ Initialization Options
+
+When creating a `Vernomic` instance, you can customize the following additional parameters beyond the basics:
+
+- `display_version_time` (bool, default `True`):  
+    Include the time component (`HHMM`) in the generated identifier.  
+- `divide_char` (str, default `"_"`):  
+    Character used to separate each part of the version ID.  
+- `description` (Optional[str], default `None`):  
+    Free‑form text stored in the metadata YAML for human context.  
+- `date` (`datetime` | `int` | `float`, default `datetime.now()`):  
+    The point in time to base the identifier on.  
+    - If you pass a Unix timestamp (`int`/`float`), it’s converted via `datetime.fromtimestamp(...)`.  
+    - If you omit it, the current local datetime is used.
+
 ## 🐍 Example
 
 ```python
@@ -45,10 +60,13 @@ v = Vernomic(
     root_name="model",
     suffix_name="v1",
     file_extension="pkl",
+    display_version_time=False,
+    divide_char="-",
+    description="Baseline experiment",
     date=datetime(2025, 6, 24, 7, 32)
 )
-print(str(v))           # → model_26_Indigo_Duck_0732_v1
-v.to_yaml("metadata/")  # writes metadata/model_26_Indigo_Duck_0732_v1.yaml
+print(str(v))  # → model-26-Indigo-Duck-v1
+v.to_yaml("metadata/")  # writes metadata/model-26-Indigo-Duck-0732-v1.yaml
 ```
 
 ## 📝 Metadata Export

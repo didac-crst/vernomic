@@ -34,7 +34,9 @@ class Vernomic:
     root_name: str
     suffix_name: str = ""
     file_extension: str = ""
+    display_version_time: bool = True # Whether to include time in the version ID.
     date: Union[datetime, int, float] = datetime.now()
+    divide_char: str = "_" # Character to separate parts in the identifier.
     description: Optional[str] = None
 
     def __post_init__(self):
@@ -73,19 +75,22 @@ class Vernomic:
         Returns:
             str: "<CycleName>_<AnimalName>"
         """
+        c = self.divide_char
         info = self.cycle_and_day
         cycle_label = CYCLE_NAMES[info["cycle_number"]]
         day_label = CYCLE_DAYS[info["day_of_cycle"]]
-        return f"{cycle_label}_{day_label}"
-    
+        return f"{cycle_label}{c}{day_label}"
+
     @property
-    def version_time(self) -> str:
+    def version_time(self) -> str | None:
         """
         Format the time component for the identifier.
 
         Returns:
             str: Two-digit hour and two-digit minute (HHMM).
         """
+        if not self.display_version_time:
+            return None
         return f"{self.date.hour:02d}{self.date.minute:02d}"
     
     @property
@@ -111,10 +116,13 @@ class Vernomic:
         Returns:
             str: The full mnemonic version ID.
         """
-        parts = [self.root_name, self.version_year, self.day_name, self.version_time]
+        c = self.divide_char
+        parts = [self.root_name, self.version_year, self.day_name]
+        if self.version_time:
+            parts.append(self.version_time)
         if self.suffix_name:
             parts.append(self.suffix_name)
-        return "_".join(parts)
+        return f"{c}".join(parts)
 
     @property
     def file_name(self) -> str:

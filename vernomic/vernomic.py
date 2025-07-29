@@ -35,6 +35,7 @@ class Vernomic:
     suffix_name: str = ""
     file_extension: str = ""
     date: Union[datetime, int, float] = datetime.now()
+    description: Optional[str] = None
 
     def __post_init__(self):
         """Convert numeric timestamp to datetime if needed."""
@@ -131,7 +132,7 @@ class Vernomic:
         ext = self.file_extension.lstrip(".")
         return f"{self.vernomic_id}.{ext}"
 
-    def to_yaml(self, path: str = "./", description: Optional[str] = None) -> None:
+    def to_yaml(self, path: str = "./") -> None:
         """
         Export metadata to a YAML file.
 
@@ -168,9 +169,8 @@ class Vernomic:
             "version_year": self.version_year,
             "version_day": self.day_name,
             "version_time": self.version_time,
+            "description": self.description
         }
-        if description:
-            data["description"] = description
 
         # Normalize to Path
         p = Path(path)

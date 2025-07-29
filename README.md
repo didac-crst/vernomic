@@ -65,7 +65,8 @@ v = Vernomic(
     description="Baseline experiment",
     date=datetime(2025, 6, 24, 7, 32)
 )
-print(str(v))  # → model-26-Indigo-Duck-0732-v1
+print(v)                # → model-26-Indigo-Duck-0732-v1
+print(v.file_name)      # → model-26-Indigo-Duck-0732-v1.pkl
 v.to_yaml("metadata/")  # writes metadata/model-26-Indigo-Duck-0732-v1.yaml
 ```
 

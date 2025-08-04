@@ -1,14 +1,38 @@
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-# Vernomic
+# Vernomic 
+**_“Because every version deserves a personality.”_**
 
-A **mnemonic versioning system** on a four-week cycle that fuses vivid, object-based color names
-with animals — making each release as memorable as it is meaningful.
-
-    model_26_Indigo_Duck_0732_v1
-
-This is useful for naming experiments, models, snapshots, or backups with more memorable identifiers than timestamps or UUIDs.
+> A while back, I trained a killer model. Best one yet.  
+> Naturally, I named it:  
+> ```bash  
+> model_1687529132_v1.h5  
+> ```  
+> Because nothing screams *clarity* like a 10-digit Unix timestamp.  
+>
+> Months later, I needed it again. But now my folder looks like this:
+> ```
+> model_1687529132_v1.h5  
+> model_1688432019_v2.h5  
+> model_1690017257_v2_1.h5  
+> model_1690017257_v2_1_1.h5  
+> ```
+> I swear it was on my ex-girlfriend's birthday.  
+> (Was it the second one? Or the third? 😅)  
+>
+> Point is: **I had no idea which model was what.**  
+>
+> That’s why I built **Vernomic** — a versioning system with *memory baked in*.  
+> Instead of digits, you get:
+> ```bash  
+> model-26-Indigo-Duck-0732-v1.h5  
+> ```  
+> Now *that* I remember.  
+> “Indigo Duck” — the experiment with early stopping and too much coffee.  
+>
+> Because when you’re deep in the trenches of machine learning,  
+> **you deserve filenames that spark recognition — not regret**.
 
 ## 🔧 Installation
 
@@ -57,6 +81,8 @@ When creating a `Vernomic` instance, you can customize the following additional 
     - If you pass a Unix timestamp (`int`/`float`), it’s converted via `datetime.fromtimestamp(...)`.  
     - If you omit it, the current local datetime is used.
 
+> Note: In this example we use `model` as the root name, but you can use anything — like `artifact`, `experiment`, `snapshot`, or `backup`.
+
 ## 🐍 Example
 
 ```python
@@ -66,14 +92,14 @@ from datetime import datetime
 v = Vernomic(
     root_name="model",
     suffix_name="v1",
-    file_extension="pkl",
+    file_extension="h5",
     display_version_time=True,
     divide_char="-",
     description="Baseline experiment",
     date=datetime(2025, 6, 24, 7, 32)
 )
 print(v)                # → model-25-Indigo-Duck-0732-v1
-print(v.file_name)      # → model-25-Indigo-Duck-0732-v1.pkl
+print(v.file_name)      # → model-25-Indigo-Duck-0732-v1.h5
 v.to_yaml("metadata/")  # writes metadata/model-26-Indigo-Duck-0732-v1.yaml
 ```
 
@@ -89,10 +115,10 @@ The resulting YAML preserves key order and includes every attribute, for example
 
 ```yaml
 vernomic_id: model-25-Indigo-Duck-0732-v1
-file_name: model-25-Indigo-Duck-0732-v1.pkl
+file_name: model-25-Indigo-Duck-0732-v1.h5
 root_name: model
 suffix_name: v1
-file_extension: pkl
+file_extension: h5
 datetime_iso: '2025-06-24T07:32:00'
 year: 2025
 month: 6

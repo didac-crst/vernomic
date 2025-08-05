@@ -1,7 +1,7 @@
+# Vernomic
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-# Vernomic 
 **_“Because every version deserves a personality.”_**
 
 > A while back, I trained a killer model. Best one yet.  
